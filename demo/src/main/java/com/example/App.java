@@ -82,14 +82,13 @@ public class App extends Application {
         //Creating a scene object
         scene = new Scene(gridPane);
 
-        //Setting title to the Stage
-        stage.setTitle("JavaFX Example");
+        stage.setTitle("Movie Library System");
+        
+        // Scene scene= new Scene(gridPane);
 
-        //Adding scene to the stage
         stage.setScene(scene);
-
-        //Displaying the contents of the stage
         stage.show();
+
     }
 
     static void setRoot(String fxml) throws IOException {
