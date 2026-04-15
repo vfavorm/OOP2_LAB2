@@ -20,6 +20,9 @@ public class App extends Application {
 
         scene = new Scene(loadFXML("primary"), 640, 480);
         stage.setTitle("Movie Library System");
+        
+        // Scene scene= new Scene(gridPane);
+
         stage.setScene(scene);
         stage.show();
     }
@@ -34,7 +37,7 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
-        launch();
+        launch(args);
     }
 
 }
