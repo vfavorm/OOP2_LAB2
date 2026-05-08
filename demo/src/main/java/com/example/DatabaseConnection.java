@@ -1,14 +1,21 @@
 package com.example;
 
+import io.github.cdimascio.dotenv.Dotenv;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DatabaseConnection {
-    // Database credentials
-    private static final String URL = "jdbc:mysql://localhost:3306/vls_database";
-    private static final String USER = "root";
-    private static final String PASSWORD = "DatabasePass@33"; // Use the password you set
+    // Load environment variables
+    private static final Dotenv dotenv = Dotenv.configure()
+            .directory("./demo")
+            .ignoreIfMissing()
+            .load();
+    
+    // Database credentials from environment variables
+    private static final String URL = dotenv.get("DB_URL", "jdbc:mysql://localhost:3306/vls_database");
+    private static final String USER = dotenv.get("DB_USER", "root");
+    private static final String PASSWORD = dotenv.get("DB_PASSWORD", "");
 
     public static Connection getConnection() {
         Connection connection = null;
